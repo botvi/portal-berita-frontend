@@ -30,7 +30,7 @@ const Register = () => {
   const handleRegister = async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://api-msib-6-portal-berita-04.educalab.id/auth/signup", {
+      const response = await fetch("https://apiberita-express.vercel.app/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

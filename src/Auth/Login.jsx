@@ -19,7 +19,7 @@ const Login = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://api-msib-6-portal-berita-04.educalab.id/auth/signin", {
+      const response = await fetch("https://apiberita-express.vercel.app/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
