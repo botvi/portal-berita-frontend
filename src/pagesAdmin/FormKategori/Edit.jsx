@@ -13,7 +13,7 @@ const EditCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://api-msib-6-portal-berita-04.educalab.id/categories');
+        const response = await axios.get('https://apiberita-express.vercel.app/categories');
         console.log("Fetched all categories:", response.data);
         const currentCategory = response.data.find(cat => cat.id_category === parseInt(id_category));
         console.log("Current category:", currentCategory);
@@ -48,7 +48,7 @@ const EditCategory = () => {
     console.log("Submitting updated category data:", category);
 
     try {
-      const response = await axios.put(`https://api-msib-6-portal-berita-04.educalab.id/categories/${id_category}`, category, {
+      const response = await axios.put(`https://apiberita-express.vercel.app/categories/${id_category}`, category, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

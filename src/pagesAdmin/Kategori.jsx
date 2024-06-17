@@ -16,7 +16,7 @@ const Kategori = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("https://api-msib-6-portal-berita-04.educalab.id/categories");
+        const response = await axios.get("https://apiberita-express.vercel.app/categories");
         console.log("API Response:", response.data);
 
         if (response.data && Array.isArray(response.data)) {
@@ -62,7 +62,7 @@ const Kategori = () => {
 
     if (result.isConfirmed) {
       try {
-        const response = await axios.delete(`https://api-msib-6-portal-berita-04.educalab.id/categories/${id}`, {
+        const response = await axios.delete(`https://apiberita-express.vercel.app/categories/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

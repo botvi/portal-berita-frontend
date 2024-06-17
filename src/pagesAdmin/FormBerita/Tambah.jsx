@@ -30,7 +30,7 @@ const Tambah = () => {
     try {
       const token = sessionStorage.getItem("token") || ""; // Get token from sessionStorage
       const response = await axios.post(
-        "https://api-msib-6-portal-berita-04.educalab.id/news",
+        "https://apiberita-express.vercel.app/news",
         formData,
         {
           headers: {
@@ -69,7 +69,7 @@ const Tambah = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://api-msib-6-portal-berita-04.educalab.id/categories"
+          "https://apiberita-express.vercel.app/categories"
         );
         setCategories(response.data); // Set categories state with data
       } catch (error) {

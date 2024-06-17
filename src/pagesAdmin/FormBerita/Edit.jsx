@@ -22,7 +22,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`https://api-msib-6-portal-berita-04.educalab.id/news/${id_news}`);
+        const response = await axios.get(`https://apiberita-express.vercel.app/news/${id_news}`);
         console.log("Fetched article data:", response.data);
         setArticle(response.data);
       } catch (error) {
@@ -39,7 +39,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://api-msib-6-portal-berita-04.educalab.id/categories');
+        const response = await axios.get('https://apiberita-express.vercel.app/categories');
         console.log("Fetched categories data:", response.data);
         setCategories(response.data);
       } catch (error) {
@@ -74,7 +74,7 @@ const Edit = () => {
     };
 
     try {
-      const response = await axios.put(`https://api-msib-6-portal-berita-04.educalab.id/news/${id_news}`, updatedArticle, {
+      const response = await axios.put(`https://apiberita-express.vercel.app/news/${id_news}`, updatedArticle, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

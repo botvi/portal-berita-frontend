@@ -12,7 +12,7 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchCategoryDetails = async () => {
       try {
-        const categoriesResponse = await axios.get("https://api-msib-6-portal-berita-04.educalab.id/categories");
+        const categoriesResponse = await axios.get("https://apiberita-express.vercel.app/categories");
         const category = categoriesResponse.data.find(cat => cat.id_category.toString() === categoryName);
         if (category) {
           setCategoryDisplayName(category.name);
@@ -29,7 +29,7 @@ const CategoryPage = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://api-msib-6-portal-berita-04.educalab.id/news/category/${categoryName}`
+          `https://apiberita-express.vercel.app/news/category/${categoryName}`
         );
 
         const categoryArticles = response.data.sort(
@@ -47,7 +47,7 @@ const CategoryPage = () => {
     const fetchLatestNews = async () => {
       try {
         const response = await axios.get(
-          "https://api-msib-6-portal-berita-04.educalab.id/news"
+          "https://apiberita-express.vercel.app/news"
         );
         const sortedNews = response.data.sort(
           (a, b) => new Date(b.published_at) - new Date(a.published_at)

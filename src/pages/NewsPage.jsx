@@ -18,7 +18,7 @@ const NewsPage = () => {
     const fetchNews = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`https://api-msib-6-portal-berita-04.educalab.id/news/${id}`);
+        const response = await axios.get(`https://apiberita-express.vercel.app/news/${id}`);
         setNews(response.data);
         setLoading(false);
       } catch (error) {
@@ -30,13 +30,13 @@ const NewsPage = () => {
     const fetchComments = async () => {
       try {
         // Fetch comments
-        const response = await axios.get(`https://api-msib-6-portal-berita-04.educalab.id/comments/${id}`);
+        const response = await axios.get(`https://apiberita-express.vercel.app/comments/${id}`);
         const comments = response.data;
 
         // Fetch user data for each comment
         const commentsWithUser = await Promise.all(
           comments.map(async (comment) => {
-            const userResponse = await axios.get(`https://api-msib-6-portal-berita-04.educalab.id/users/${comment.id_user}`);
+            const userResponse = await axios.get(`https://apiberita-express.vercel.app/users/${comment.id_user}`);
             return { ...comment, user: userResponse.data.name };
           })
         );
@@ -49,7 +49,7 @@ const NewsPage = () => {
 
     const fetchLatestNews = async () => {
       try {
-        const response = await axios.get("https://api-msib-6-portal-berita-04.educalab.id/news/");
+        const response = await axios.get("https://apiberita-express.vercel.app/news/");
         setLatestNews(response.data);
       } catch (error) {
         console.error("Error fetching latest news:", error);
@@ -61,7 +61,7 @@ const NewsPage = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get("https://api-msib-6-portal-berita-04.educalab.id/favorites", {
+        const response = await axios.get("https://apiberita-express.vercel.app/favorites", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -95,7 +95,7 @@ const NewsPage = () => {
 
     try {
       const response = await axios.post(
-        `https://api-msib-6-portal-berita-04.educalab.id/comments/add`,
+        `https://apiberita-express.vercel.app/comments/add`,
         {
           id_news: id,
           comment: commentContent,
@@ -130,7 +130,7 @@ const NewsPage = () => {
 
     try {
       if (isFavorite) {
-        await axios.delete(`https://api-msib-6-portal-berita-04.educalab.id/news/favorite/${id}`, {
+        await axios.delete(`https://apiberita-express.vercel.app/news/favorite/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -138,7 +138,7 @@ const NewsPage = () => {
         Swal.fire('Success', 'Berita berhasil dihapus dari favorit!', 'success');
       } else {
         await axios.post(
-          "https://api-msib-6-portal-berita-04.educalab.id/news/favorite",
+          "https://apiberita-express.vercel.app/news/favorite",
           { newsId: id },
           {
             headers: {

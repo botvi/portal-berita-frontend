@@ -15,7 +15,7 @@ const HomeContent = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://api-msib-6-portal-berita-04.educalab.id/news"
+          "https://apiberita-express.vercel.app/news"
         );
     
         console.log(response.data); // Log the response to check its structure

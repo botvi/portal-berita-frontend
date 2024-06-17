@@ -24,7 +24,7 @@ const Tambah = () => {
     try {
       const token = sessionStorage.getItem("token") || ""; // Get token from sessionStorage
       const response = await axios.post(
-        "https://api-msib-6-portal-berita-04.educalab.id/categories",
+        "https://apiberita-express.vercel.app/categories",
         formData,
         {
           headers: {

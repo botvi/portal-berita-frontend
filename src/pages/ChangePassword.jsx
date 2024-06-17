@@ -20,7 +20,7 @@ const ChangePassword = () => {
       const token = sessionStorage.getItem("token"); // Ganti dengan cara Anda mendapatkan token
 
       const response = await axios.put(
-        "https://api-msib-6-portal-berita-04.educalab.id/change-password",
+        "https://apiberita-express.vercel.app/change-password",
         { oldPassword, newPassword },
         {
           headers: {

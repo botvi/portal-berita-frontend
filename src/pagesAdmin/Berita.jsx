@@ -19,7 +19,7 @@ const Berita = () => {
 
     const fetchArtikels = async () => {
       try {
-        const response = await axios.get('https://api-msib-6-portal-berita-04.educalab.id/news');
+        const response = await axios.get('https://apiberita-express.vercel.app/news');
         const sortedArtikels = response.data.map((artikel) => ({
           ...artikel,
           published_at: new Date(artikel.published_at).toLocaleDateString('id-ID', {
@@ -38,7 +38,7 @@ const Berita = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://api-msib-6-portal-berita-04.educalab.id/categories');
+        const response = await axios.get('https://apiberita-express.vercel.app/categories');
         setCategories(response.data);
       } catch (error) {
         setError(error);
@@ -47,7 +47,7 @@ const Berita = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://api-msib-6-portal-berita-04.educalab.id/users/', {
+        const response = await axios.get('https://apiberita-express.vercel.app/users/', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -92,7 +92,7 @@ const Berita = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.delete(`https://api-msib-6-portal-berita-04.educalab.id/news/${id}`, {
+          const response = await axios.delete(`https://apiberita-express.vercel.app/news/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

@@ -15,9 +15,9 @@ const Dashboard = () => {
     const fetchCounts = async () => {
       try {
         const [newsResponse, categoriesResponse, usersResponse] = await Promise.all([
-          axios.get("https://api-msib-6-portal-berita-04.educalab.id/news"),
-          axios.get("https://api-msib-6-portal-berita-04.educalab.id/categories"),
-          axios.get("https://api-msib-6-portal-berita-04.educalab.id/users", {
+          axios.get("https://apiberita-express.vercel.app/news"),
+          axios.get("https://apiberita-express.vercel.app/categories"),
+          axios.get("https://apiberita-express.vercel.app/users", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
